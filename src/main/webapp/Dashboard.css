@@ -1,0 +1,1140 @@
+input {
+  position: fixed;
+  opacity: 0;
+}
+
+label {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+label::before {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 38, 57, 0.75);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+label .burger {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 3;
+  width: 2em;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+label .burger::before,
+label .burger .bar, label .burger::after {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 12%;
+  background: #F0E9D2;
+  content: "";
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+label .burger .bar {
+  top: 44%;
+}
+label .burger::before {
+  top: 0;
+  transform-origin: top left;
+}
+label .burger::after {
+  bottom: 0;
+  transform-origin: bottom left;
+}
+
+input:focus + label .burger,
+label:hover .burger {
+  opacity: 1;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  transform: translate3d(0, 0, 0);
+  /* material acceleration */
+  transform: translateX(-100%);
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+nav::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 25em;
+  background: #678983;
+  content: "";
+  transform: skewX(15deg) translateX(-100%);
+  transform-origin: bottom left;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+@media (min-width: 40em) {
+  nav::before {
+    width: 40em;
+  }
+}
+nav a {
+  margin: 0.5em 0;
+  padding: 0.2em 2em;
+  font-size: 1.5em;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transform: translateX(-100%);
+  transition: color 0.15s, transform 0.5s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+nav a:nth-child(1) {
+  transition-delay: 0s, 100ms;
+}
+nav a:nth-child(2) {
+  transition-delay: 0s, 150ms;
+}
+nav a:nth-child(3) {
+  transition-delay: 0s, 200ms;
+}
+nav a:nth-child(4) {
+  transition-delay: 0s, 250ms;
+}
+nav a:nth-child(5) {
+  transition-delay: 0s, 300ms;
+}
+nav a:nth-child(6) {
+  transition-delay: 0s, 350ms;
+}
+nav a:nth-child(7) {
+  transition-delay: 0s, 400ms;
+}
+nav a:hover, nav a:focus {
+  color: #181D31;
+}
+
+main {
+  overflow: hidden;
+}
+main .content {
+  transform: translate3d(0, 0, 0);
+  /* material acceleration */
+  will-change: transform, filter;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+[id=navcheck]:checked + label::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+[id=navcheck]:checked + label .burger::before, [id=navcheck]:checked + label .burger::after {
+  width: 141.42%;
+}
+[id=navcheck]:checked + label .burger::before {
+  transform: rotate(45deg) translateY(-50%);
+}
+[id=navcheck]:checked + label .burger::after {
+  transform: rotate(-45deg) translateY(50%);
+}
+[id=navcheck]:checked + label .burger .bar {
+  transform: scale(0.1);
+}
+[id=navcheck]:checked ~ nav {
+  transform: translateX(0);
+}
+[id=navcheck]:checked ~ nav::before {
+  transform: skewX(15deg) translateX(0);
+}
+[id=navcheck]:checked ~ nav a {
+  transform: translateX(0);
+}
+[id=navcheck]:checked ~ main .content {
+  transform: translateX(3em);
+  transform-origin: left center;
+  filter: blur(2px);
+}
+
+
+/* misc */
+body {
+height: 1080px;
+  background: #F0E9D2;
+  color: #678983;
+  font-size: 15px;
+  
+}
+
+main {
+  background: #3498db;
+  padding: 5% 0;
+}
+
+article {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1.3em;
+}
+@media (min-width: 60em) {
+  article {
+    width: 50%;
+  }
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 40px;
+  margin-left: 3%;
+  margin-top: -0.3%;
+  color: #678983;
+  padding-top:0px;
+  padding-left: 18px;
+
+}
+.capsule {
+position: absolute;
+top: 0px;
+height: 60px;
+    width: 1920px;
+    left: 0px;
+    background-color:#181D31;
+}
+.capsule2 {
+    position: absolute;
+top: 0px;
+height: 60px;
+    width: 60px;
+    left: 0px;
+    background-color:#678983;
+
+}
+.capsule3 {
+    position: absolute;
+top: 0px;
+height: 100px;
+    width: 200px;
+    left: 0px;
+    background-color:#678983;
+    margin-left: 90%;
+    border-radius: 50%;
+
+}
+.button {
+    background-color: #678983;
+    border: none;
+    color: #ffffff;
+    width: 100px;
+    padding: 10px 20px;
+    text-align: right;
+    font-size: medium;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    margin-left: 92%;
+    position: absolute;
+    margin-top: -5.7%;
+
+  }
+
+
+  .btn3 {
+    background: #678983;
+    border: none;
+    color: #ffffff;
+    height: 40px;
+    width: 500px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border-radius: 20px;
+    opacity: 0.5;
+    overflow: hidden;
+    transition: ease-in-out 0.4s;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
+  }
+  .bx-search-alt-2 {
+    font-size: 25px;
+    color: #ffffff;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transition: ease-out 0.9s;
+    transition: ease-in 0.2s;
+    opacity: 1;
+  }
+  .btn4 {
+    background: #678983;
+    border: none;
+    color: #fcfcfc;
+    height: 40px;
+    width: 40px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border-radius: 20px;
+    opacity: 1;
+    overflow: hidden;
+    transition: ease-in-out 0.4s;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 90%;
+    top: 50%;
+    position: absolute;
+  }
+  .bxs-bell-ring {
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transition: ease-out 0.9s;
+    transition: ease-in 0.2s;
+  }
+  .bxs-user {
+    position: absolute;
+    left: -7%;
+    height: 40px;
+    width: 40px;
+  }
+/*********************Trial*********************/
+
+
+.search__input {
+    width: 100%;
+    padding: 12px 24px;
+
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    
+    color: #575756;
+    background-color: transparent;
+/*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
+
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #575756;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.search__input::placeholder {
+        color: rgba(87, 87, 86, 0.8);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+.search__input:hover,
+    .search__input:focus {
+        padding: 12px 0;
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 1px solid #575756;
+        border-radius: 0;
+        background-position: 100% center;
+    }
+    .box {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: 10%;
+      left:10%;
+      border-radius: 10%;
+      
+
+    }
+    
+    .box img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box:hover .text {
+      bottom: -50px;
+      
+    }
+    .box2 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -16%;
+      left: 40%;
+      border-radius: 10%;
+
+    }
+    
+    .box2 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box2:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box2 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box2:hover .text {
+      bottom: -50px;
+      
+    }
+    .box3 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -41.9%;
+      left: 70%;
+      border-radius: 10%;
+
+    }
+    
+    .box3 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box3:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box3 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box3:hover .text {
+      bottom: -50px;
+      
+    }
+    .box4 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -33.35%;
+      left: 10%;
+      border-radius: 10%;
+
+    }
+    
+    .box4 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box4:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box4 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box4:hover .text {
+      bottom: -50px;
+      
+    }
+    .box5 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -59%;
+      left: 40%;
+      border-radius: 10%;
+
+    }
+    
+    .box5 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box5:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box5 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box5:hover .text {
+      bottom: -50px;
+      
+    }
+    .box6 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -85%;
+      left: 70%;
+      border-radius: 10%;
+
+    }
+    
+    .box6 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box6:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box6 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box6:hover .text {
+      bottom: -50px;
+      
+    }
+    .box7 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -75%;
+      left: 10%;
+      border-radius: 10%;
+
+    }
+    
+    .box7 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box7:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box7 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box7:hover .text {
+      bottom: -50px;
+      
+    }
+    .box8 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -101%;
+      left: 40%;
+      border-radius: 10%;
+
+    }
+    
+    .box8 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box8:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box8 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box8:hover .text {
+      bottom: -50px;
+      
+    }
+    .box9 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -126.9%;
+      left: 70%;
+      border-radius: 10%;
+
+    }
+    
+    .box9 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box9:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box9 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box9:hover .text {
+      bottom: -50px;
+      
+    }
+    .box10 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -117%;
+      left: 10%;
+      border-radius: 10%;
+
+    }
+    
+    .box10 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box10:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box10 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box10:hover .text {
+      bottom: -50px;
+      
+    }
+    .box11 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -143%;
+      left: 40%;
+      border-radius: 10%;
+
+    }
+    
+    .box11 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box11:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box11 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box11:hover .text {
+      bottom: -50px;
+      
+    }
+    .box12 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -169%;
+      left: 70%;
+      border-radius: 10%;
+
+    }
+    
+    .box12 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box12:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box12 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box12:hover .text {
+      bottom: -50px;
+      
+    }
+    .box13 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -158%;
+      left: 10%;
+      border-radius: 10%;
+
+    }
+    
+    .box13 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box13:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box13 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box13:hover .text {
+      bottom: -50px;
+      
+    }
+    .box14 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -183.4%;
+      left: 40%;
+      border-radius: 10%;
+
+    }
+    
+    .box14 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box14:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box14 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box14:hover .text {
+      bottom: -50px;
+      
+    }
+    .box15 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -209.5%;
+      left: 70%;
+      border-radius: 10%;
+
+    }
+    
+    .box15 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box15:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box15 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box15:hover .text {
+      bottom: -50px;
+      
+    }
+    .box16 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -199%;
+      left: 10%;
+      border-radius: 10%;
+
+    }
+    
+    .box16 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box16:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box16 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box16:hover .text {
+      bottom: -50px;
+      
+    }
+    .box17 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -225%;
+      left: 40%;
+      border-radius: 10%;
+
+    }
+    
+    .box17 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box17:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box17 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box17:hover .text {
+      bottom: -50px;
+      
+    }
+    .box18 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -251%;
+      left: 70%;
+      border-radius: 10%;
+
+    }
+    
+    .box18 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box18:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box18 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box18:hover .text {
+      bottom: -50px;
+      
+    }
+    .box19 {
+      position:relative;
+      width: 400px; /* Set the width of the box */
+      height: 280px; /* Set the height of the box */
+      overflow: hidden;
+      top: -240%;
+      left: 40%;
+      border-radius: 10%;
+
+    }
+    
+    .box19 img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+    }
+    
+    .box19:hover img {
+      transform: scale(2); /* Enlarge the image when hovered */
+    }
+    
+    .box19 .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Set the background color of the text */
+      color: #fff; /* Set the color of the text */
+      padding: 10px;
+      transition: bottom 0.5s;
+      font-size: large;
+      font-family: 'Montserrat', sans-serif;
+      
+      
+    }
+    
+    .box19:hover .text {
+      bottom: -50px;
+      
+    }
+    
+
+.test{
+  position: absolute;
+  padding-top: 10px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 550;
+  font-size: 40px;
+}

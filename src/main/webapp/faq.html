@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Club FAQ</title>
+	<style>
+		body {
+			background-color: #F7F7F7;
+			font-family: 'Montserrat', sans-serif;
+			margin: 0;
+			padding: 0;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+		h1 {
+			font-size: 70px;
+			font-weight: 700;
+			text-align: center;
+			color: #3A3A3A;
+			margin: 50px 0 30px;
+		}
+
+		.container {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 0 30px;
+		}
+
+		.question {
+			font-size: 24px;
+			font-weight: 700;
+			color: #3A3A3A;
+			margin-bottom: 20px;
+			cursor: pointer;
+		}
+
+		.answer {
+			font-size: 18px;
+			font-weight: 400;
+			color: #666666;
+			line-height: 1.5;
+			margin-bottom: 30px;
+			display: none;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Club FAQ</h1>
+
+	<div class="container">
+		<div class="question" onclick="toggleAnswer('question1')">What clubs are available on campus?</div>
+		<div class="answer" id="question1">We have a variety of clubs on campus, including academic, social, and special interest clubs. You can find a list of our clubs on our website or visit our student activities center for more information.</div>
+
+		<div class="question" onclick="toggleAnswer('question2')">How do I join a club?</div>
+		<div class="answer" id="question2">Joining a club is easy! Simply visit the club's website or attend one of their meetings. Most clubs are open to new members at any time during the year. If you have any questions, feel free to contact the club's president or faculty advisor.</div>
+
+		<div class="question" onclick="toggleAnswer('question3')">Can I start my own club?</div>
+		<div class="answer" id="question3">Yes, you can start your own club! You will need to gather a group of interested students and a faculty advisor. Then, you can submit a club proposal to our student activities center. If approved, you will be able to start your own club and recruit members.</div>
+
+		<div class="question" onclick="toggleAnswer('question4')">Do clubs receive funding from the university?</div>
+		<div class="answer" id="question4">Yes, clubs can receive funding from the university. However, funding is not guaranteed and is subject to approval by our student activities center. Clubs can also fundraise and seek outside sponsorship.</div>
+	</div>
+
+	<script>
+		function toggleAnswer(id) {
+			var answer = document.getElementById(id);
+			if (answer.style.display === "none") {
+				answer.style.display = "block";
+			} else {
+				answer.style.display = "none";
+			}
+		}
+	</script>
+
+</body>
+</html>

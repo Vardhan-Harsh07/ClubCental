@@ -1,0 +1,182 @@
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #F0E9D2;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: 400px;
+    width: 400px;
+    background-color: #678983;
+    position: absolute;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid #678983;
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    left: 40%;
+    top:30%;
+}
+form *{
+    font-family: 'Montserrat',sans-serif;
+    color: #F0E9D2;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+form h2 {
+    text-align: top;
+    font-size: 30px;
+    margin-top: 0%;
+}
+form h3{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    margin-top: 30%;
+}
+form h4{
+    font-size: 26px;
+    
+}
+form h5{
+    text-align: center;
+    font-size: 17px;
+}
+
+label{
+    display: block;
+    margin-top: 1px;
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 15%;
+
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #F0E9D2;
+    color: #678983;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.right{
+    position: absolute;
+    display: block;
+height: 900px;
+width: 1290px;
+right: 0%;
+border-radius: 20px;
+  }
