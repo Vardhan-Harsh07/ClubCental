@@ -80,3 +80,4 @@ This project is licensed under the [MIT License](LICENSE).
 ### 📧 Contact
 For queries or collaboration:  
 **GitHub:** [Vardhan-Harsh07](https://github.com/Vardhan-Harsh07)
+**GitHub:** [Aryan Srivastava](https://github.com/aryanxsrivastava)
